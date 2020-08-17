@@ -1,0 +1,48 @@
+---
+title: "Example"
+author: "Rich"
+date: "8/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# load libraries
+library(tidyverse)
+library(knitr)
+
+```
+
+## R Markdown Example
+
+Example analysis of car mpg and wt.
+
+### Table
+
+```{r cars}
+
+# create a table
+mtcars %>% 
+  select(mpg, wt, cyl) %>% 
+  kable()
+
+
+```
+
+### Plot
+
+```{r}
+
+# create a plot of mpg and wt
+
+mtcars %>% 
+  select(mpg, wt) %>% 
+  ggplot(aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = lm)
+
+
+```
+
+
